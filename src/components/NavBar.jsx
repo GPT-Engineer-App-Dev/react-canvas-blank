@@ -1,5 +1,4 @@
-import { Box, Flex, HStack, Link, IconButton, useDisclosure, Stack } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { Box, Flex, HStack, Link, useDisclosure, Stack } from "@chakra-ui/react";
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -8,13 +7,13 @@ const NavBar = () => {
     <>
       <Box bg="brand.700" px={4}>
         <Flex h={16} alignItems="center" justifyContent="space-between">
-          <IconButton
-            size="md"
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label="Open Menu"
+          <Box
+            as="button"
             display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
-          />
+          >
+            {isOpen ? "Close" : "Menu"}
+          </Box>
           <HStack spacing={8} alignItems="center">
             <Box color="white" fontWeight="bold">Logo</Box>
             <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
